@@ -1,0 +1,5 @@
+{
+    "port": "5000",
+    "mongoUri": "mongodb+srv://diman12345677:dima1998@mern.ytlewsn.mongodb.net/app?retryWrites=true&w=majority",
+    "jwtSecret": "dima mern"
+}
