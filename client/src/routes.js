@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AuthPage from './pages/AuthPage';
 import CreatePage from './pages/CreatePage';
 import DetailPage from './pages/DetailPage';

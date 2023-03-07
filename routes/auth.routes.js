@@ -1,22 +1,26 @@
-const { Router } = require('express')
-const User = require('../models/User')
-const router = Router()
-const bcrypt = require('bcrypt')
+const {Router} = require('express')
+const bcrypt = require('bcryptjs')
 const config = require('config')
 const jwt = require('jsonwebtoken')
-const { check, validationResult } = require('express-validator')
+const {check, validationResult} = require('express-validator')
+const User = require('../models/User')
+const router = Router()
 
+// /api/auth/register
 router.post(
     '/register',
     // middlewares
     [
-        check('email', 'incorrect email').isEmail(),
-        check('password', 'min length of password is 6 char')
-            .isLength({min: 6})
+      check('email', 'incorrect email').isEmail(),
+      check('password', 'min length of password is 6 char')
+          .isLength({ min: 6 })
     ],
     async (req, res) => {
+      console.log('req.body', req.body);
     try {
       const errors = validationResult(req)
+
+      console.log(errors);
 
       if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -25,12 +29,12 @@ router.post(
         })
       }
 
-      const {email, password} = req.body
+      const { email, password } = req.body
 
       const candidate = await User.findOne({ email })
 
       if (candidate) {
-        return res.status(400).json({ message: "user excisted"})
+        return res.status(400).json({ message: "user exists"})
       }
 
       const hashedPassword = await bcrypt.hash(password, 12)
