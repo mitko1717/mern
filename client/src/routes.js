@@ -9,9 +9,10 @@ export const useRoutes = (isAuthenticated) => {
     if (isAuthenticated) {
         return (
             <Routes>
-                <Route path='/links' element={<LinksPage />} />
                 <Route path='/create' element={<CreatePage />} />
+                <Route path='/links' element={<LinksPage />} />
                 <Route path='/detail/:id' element={<DetailPage />} />
+                <Route path="/*" element={<CreatePage />} redirect={'/create'}/>
             </Routes>
         )
     }

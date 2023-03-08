@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hook';
 import { useMessage } from '../hooks/message.hook'
 
 const AuthPage = () => {
-    const navigate = useNavigate();
+    const auth = useContext(AuthContext)
     const message = useMessage()
     const { loading, error, request, clearError } = useHttp()
     const [form, setForm] = useState({
@@ -37,13 +37,9 @@ const AuthPage = () => {
     const loginHandler = async () => {
     try {
         const data = await request('/api/auth/login', 'POST', {...form})
-        // auth.login(data.token, data.userId)
+        auth.login(data.token, data.userId)
     } catch (e) {}
     }
-
-    useEffect(() => {
-        navigate("/");
-    }, [navigate])
 
     return (
         <div className='row'>
