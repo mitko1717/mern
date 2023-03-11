@@ -12,7 +12,7 @@ export const useRoutes = (isAuthenticated) => {
                 <Route path='/create' element={<CreatePage />} />
                 <Route path='/links' element={<LinksPage />} />
                 <Route path='/detail/:id' element={<DetailPage />} />
-                <Route path="/*" element={<CreatePage />} redirect={'/create'}/>
+                <Route path="" element={<CreatePage />} redirect={'/create'}/>
             </Routes>
         )
     }

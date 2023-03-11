@@ -2,6 +2,7 @@ import {useState, useCallback, useEffect} from 'react'
 
 const storageName = 'userData'
 
+// with help of this useAuth we get info about LS data and we see routes
 export const useAuth = () => {
   const [token, setToken] = useState(null)
   const [ready, setReady] = useState(false)
