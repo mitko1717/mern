@@ -42,6 +42,7 @@ router.post("/generate", auth, async (req, res) => {
 router.get("/", auth, async (req, res) => {
   try {
     // need to get user from front firstly
+    // it return links with only userId owner
     const links = await Link.find({ owner: req.user.userId }); // i signed it with jwt.sign in auth.routes:76
     res.json(links);
   } catch (e) {

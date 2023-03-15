@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const LinksList = ({ links }) => {
   if (!links.length) {
