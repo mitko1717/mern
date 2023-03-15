@@ -19,8 +19,6 @@ router.post(
     try {
       const errors = validationResult(req);
 
-      console.log(errors);
-
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
@@ -77,16 +75,14 @@ router.post(
           .json({ message: "incorrect password, try again" });
 
       const token = jwt.sign(
-        // what to encrypt
+         // what to encrypt
         { userId: user.id },
-        config.get("jwtSecret"),
+        config.get('jwtSecret'),
         // excistence time of token
-        { expiresIn: "1h" }
-      );
+        { expiresIn: '1h' }
+      )
 
       res.json({ token, userId: user.id });
-
-      //   res.status(201).json({ message: 'user created' })
     } catch (e) {
       res.status(500).json({ message: e });
     }
