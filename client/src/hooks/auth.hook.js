@@ -34,6 +34,7 @@ export const useAuth = () => {
     if (data && data.token) {
       login(data.token, data.userId);
     }
+    // setReady true when auth modul works already
     setReady(true);
   }, [login]);
 
