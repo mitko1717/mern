@@ -75,12 +75,12 @@ router.post(
           .json({ message: "incorrect password, try again" });
 
       const token = jwt.sign(
-         // what to encrypt
+        // what to encrypt
         { userId: user.id },
-        config.get('jwtSecret'),
+        config.get("jwtSecret"),
         // excistence time of token
-        { expiresIn: '1h' }
-      )
+        { expiresIn: "1h" }
+      );
 
       res.json({ token, userId: user.id });
     } catch (e) {

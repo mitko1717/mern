@@ -13,7 +13,7 @@ const App = () => {
   const routes = useRoutes(isAuthenticated);
 
   if (!ready) {
-    return <Loader />
+    return <Loader />;
   }
 
   return (

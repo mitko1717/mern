@@ -17,11 +17,16 @@ const CreatePage = () => {
     if (event.key === "Enter") {
       try {
         // in this field i will get object where keeping about link
-        const data = await request('/api/link/generate', 'POST', {from: link}, {
-            Authorization: `Bearer ${auth.token}`
-        })
+        const data = await request(
+          "/api/link/generate",
+          "POST",
+          { from: link },
+          {
+            Authorization: `Bearer ${auth.token}`,
+          }
+        );
         // console.log("data", data);
-        navigate(`/detail/${data.link._id}`)
+        navigate(`/detail/${data.link._id}`);
       } catch (e) {}
     }
   };

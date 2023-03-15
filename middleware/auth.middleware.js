@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
     }
 
     // uncrypted token
-    const decoded = jwt.verify(token, config.get('jwtSecret'))
+    const decoded = jwt.verify(token, config.get("jwtSecret"));
 
     // add in user field
     req.user = decoded;
