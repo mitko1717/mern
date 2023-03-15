@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const LinksPage = () => {
-    return (
-        <div>
-            <h1>Links</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>Links</h1>
+    </div>
+  );
+};
 
-export default LinksPage
+export default LinksPage;
